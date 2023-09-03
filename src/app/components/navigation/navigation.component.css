@@ -1,0 +1,14 @@
+.navigation-ul {
+    display: flex;
+}
+
+.navigation-ul li {
+    list-style-type: none;
+    margin: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.navigation-ul li:hover {    
+    border-bottom: 2px solid green;
+    cursor: pointer;
+}

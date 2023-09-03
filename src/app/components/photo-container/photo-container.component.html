@@ -1,0 +1,16 @@
+<div>
+    <h1>Photo container</h1>
+    <ng-container *ngFor="let photo of photoData">
+        <!-- <p>{{ photo.title }}</p>
+        <img [src]="photo.url" alt="{{ photo.title }}" />
+        <div>{{ photo.title }}</div>
+        <div>{{ photo.id }}</div>
+        <div>{{ photo.url }}</div>
+        <div>{{ photo.thumbnailUrl }}</div> -->
+        <app-photo-item [photoData]="photo"/>
+        <!-- <app-user-item [photoData]="photo" (newPhoto)="handleAddNewPhoto($event)" /> -->
+    </ng-container>
+    <ng-container *ngFor="let page of visiblePagesArr">
+        <a href="photos?p={{page}}">{{page}}</a>
+    </ng-container>
+</div>

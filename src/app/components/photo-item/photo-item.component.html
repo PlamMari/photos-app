@@ -1,0 +1,6 @@
+<div [ngClass]="'photo-item-box'">
+    <h2>Photo /item/ #{{photoData.id}}</h2>   
+    
+    <img [src]="photoData.thumbnailUrl"/>
+    <button (click)="showPhotoDetails()">Details</button>  
+</div>

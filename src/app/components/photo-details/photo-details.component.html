@@ -1,0 +1,19 @@
+<h1>Photo details page</h1>
+
+    <ng-container *ngIf="loading">
+        <p>Loading ...</p>
+    </ng-container>
+    <!-- <p>ID: {{photo && photo['id']}}</p> -->
+
+<div>   
+    <ng-container *ngIf="photo">        
+        <p>Title: {{ photo['title'] }}</p>
+        <p>ID: {{ photo['id'] }}</p>
+        <div>
+            <img [src]="photo['url']" alt="{{photo['title']}}"/>
+            Url: {{ photo['url'] }}</div>
+        <p>Just a pretty json: {{photo | prettyPhoto}}</p>
+    </ng-container>
+</div>
+
+
