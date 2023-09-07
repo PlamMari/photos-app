@@ -1,0 +1,9 @@
+<p>favourites</p>
+<ul><ng-container *ngFor="let fav of favs">
+    <li>
+        <img [src]="fav.thumbnailUrl" alt="Photo thumbnail">
+        <a [href]="fav.url" target="_blank">{{fav.title}}</a>
+        <button (click)="removeFromFavourites(fav)" 
+            [disabled]="!isFavourite(fav)">Remove from favs</button>
+    </li>
+</ng-container></ul>

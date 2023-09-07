@@ -2,5 +2,8 @@
     <h2>Photo /item/ #{{photoData.id}}</h2>   
     
     <img [src]="photoData.thumbnailUrl"/>
-    <button (click)="showPhotoDetails()">Details</button>  
+    <button (click)="showPhotoDetails()">Details</button>
+    <button (click)="handleAddToFavs()">Add Favorite</button>
+    <input type="checkbox" id="fav-{{photoData.id}}" (change)="toggleFavorite(photoData)" 
+    [checked]="photoData['isFavorite']"><label for="fav-{{photoData.id}}">Add to favs</label>
 </div>

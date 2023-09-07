@@ -5,11 +5,13 @@ import { PhotoItemComponent } from './components/photo-item/photo-item.component
 import { PhotoContainerComponent } from './components/photo-container/photo-container.component';
 import { HomeComponent } from './components/home/home.component';
 import { PhotoDetailsComponent } from './components/photo-details/photo-details.component';
+import { FavouritesComponent } from './components/favourites/favourites.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'photos', component: PhotoContainerComponent },
   { path: 'photo/:photoId', component: PhotoDetailsComponent },
+  { path: 'favourites', component: FavouritesComponent },
   { path: '**', component: NotFoundComponent}
 ];
 

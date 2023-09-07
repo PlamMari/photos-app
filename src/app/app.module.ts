@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { PhotoService } from './services/photo.service';
 import { PhotoDetailsComponent } from './components/photo-details/photo-details.component';
+import { AddToFavouritesService } from './services/add-to-favourites.service';
+import { FavouritesComponent } from './components/favourites/favourites.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,15 @@ import { PhotoDetailsComponent } from './components/photo-details/photo-details.
     NotFoundComponent,
     HomeComponent,
     NavigationComponent,
-    PhotoDetailsComponent
+    PhotoDetailsComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [PhotoService],
+  providers: [PhotoService, AddToFavouritesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

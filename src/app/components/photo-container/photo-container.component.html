@@ -7,7 +7,9 @@
         <div>{{ photo.id }}</div>
         <div>{{ photo.url }}</div>
         <div>{{ photo.thumbnailUrl }}</div> -->
-        <app-photo-item [photoData]="photo"/>
+        <app-photo-item [photoData]="photo" (removeFromFav)="onRemoveFromFav($event)"></app-photo-item>
+        <!-- <app-favourites [favs]="favs"></app-favourites> -->
+        <app-favourites></app-favourites>
         <!-- <app-user-item [photoData]="photo" (newPhoto)="handleAddNewPhoto($event)" /> -->
     </ng-container>
     <ng-container *ngFor="let page of visiblePagesArr">
