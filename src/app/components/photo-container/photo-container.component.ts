@@ -22,7 +22,7 @@ export class PhotoContainerComponent implements OnInit {
 
   @Input() public favs: Photo[] = [];
 
-  itemsPerPage: number= 50;
+  itemsPerPage: number= 5;
   activePage: number= 0;
   visiblePagesArr!: number[];
 
@@ -40,29 +40,14 @@ export class PhotoContainerComponent implements OnInit {
     this.photoService.getPhotos$()
       .subscribe({
         next: (response: Photo[]) => {
-          /*
-            $numTotalItems= count($arr);
-            $itemsPerPage= 5;
-
-            $page= isset($_GET["p"])? $_GET["p"]: 2;
-            $totalPages= ceil($numTotalItems/$itemsPerPage);
-            $pageItemsCount= $totalPages> $page? $itemsPerPage: $numTotalItems-($totalPages-1)*$itemsPerPage;
-            $itemStartIndex= ($page-1)*$itemsPerPage;
-            $itemEndIndex= $itemStartIndex+$pageItemsCount;
-            
-            for($i= $itemStartIndex; $i< $itemEndIndex; $i++)
-            {
-              echo $arr[$i]->id."\n";
-            }
-            echo "items: ".$numTotalItems.", pages: ".$totalPages;
-          */
 
           var numTotalItems= response.length;
-          var totalPages= 8;//TODO: calc properly
-          var itemStartIndex=0;
-          var itemEndIndex=2;
-
-          this.visiblePagesArr= Array(totalPages).fill(0).map((x, i) => i+1);
+          var totalPages= Math.ceil(numTotalItems/this.itemsPerPage);//TODO: calc properly
+          var itemStartIndex=(this.activePage-1)*this.itemsPerPage;
+          var itemEndIndex=itemStartIndex+this.itemsPerPage;
+          var lowerPagesBound= this.activePage< 5? 0: this.activePage-5;
+          lowerPagesBound= this.activePage> totalPages-5 ? totalPages-11: lowerPagesBound;
+          this.visiblePagesArr= Array(11).fill(0).map((x, i) => lowerPagesBound+ i+1);
 
           this.photoData = response.slice(itemStartIndex, itemEndIndex);
           console.log('FROM NEXT', this.photoData);
