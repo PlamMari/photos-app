@@ -23,9 +23,13 @@ export class AddToFavouritesService {
   }
 
   addToFavorites(photo: Photo) {
+    const index = this.favourites.findIndex(item => item.id === photo.id);
+    
+    if (index== -1) {
     alert('Added to favs')
     this.favourites.push(photo)
     this.saveFavourites()
+  }
   }
 
   public removeFromFavourites(fav: Photo) {

@@ -46,11 +46,10 @@ ngOnInit(): void {
   
 }
 
-addToFavourites(photo: Photo): void {
-  this.favs.push(photo)
+removeFromFavourites(photo: Photo) { 
+  alert('removed')
+ this.addToFavs.removeFromFavourites(photo)
 }
-
-removeFromFavourites(photo: Photo) {}
 
 public isFavourite(photo: Photo): boolean {
   return this.favs.some(fav => fav.id === photo.id);
