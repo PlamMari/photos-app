@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./favourites.component.css']
 })
 export class FavouritesComponent {
+
 @Input() favs!: Photo[];
 // public favs: Photo[] = [{
 //     "albumId": "1",

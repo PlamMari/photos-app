@@ -1,11 +1,15 @@
 <p>favourites</p>
 <ul class="grid-container"><ng-container *ngFor="let fav of favs">
     <li class="grid-item">
-        <img [src]="fav.thumbnailUrl" alt="Photo thumbnail">
-        <br>
-        <a [href]="fav.url" target="_blank">{{fav.title}}</a>
-        <br>
-        <button (click)="removeFromFavourites(fav)"
-            [disabled]="!isFavourite(fav)">Remove</button>
+        <div class="content">
+            <img [src]="fav.thumbnailUrl" alt="Photo thumbnail">
+            <br>
+            <a [href]="fav.url" target="_blank">{{fav.title}}</a>
+            <br>
+            <button mat-button color="warn" (click)="removeFromFavourites(fav)" [disabled]="!isFavourite(fav)">
+                <mat-icon>favorite</mat-icon>
+                Remove
+            </button>
+        </div>        
     </li>
 </ng-container></ul>
