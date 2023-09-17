@@ -8,13 +8,14 @@ import { Photo } from '../interfaces/photo';
 export class AddToFavouritesService {
 
   private favourites: Photo[] = [
-    {
-      "albumId": "1",
-      "id": "1",
-      "title": "accusamus beatae ad facilis cum similique qui sunt",
-      "url": "https://via.placeholder.com/600/92c952",
-      "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-    }];
+    // {
+    //   "albumId": "1",
+    //   "id": "1",
+    //   "title": "accusamus beatae ad facilis cum similique qui sunt",
+    //   "url": "https://via.placeholder.com/600/92c952",
+    //   "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+    // }
+  ];
 
   public favouritesList$ = new BehaviorSubject<Photo[]>(this.favourites);
 
@@ -59,5 +60,14 @@ export class AddToFavouritesService {
   private saveFavourites() {
   // stringify the array and store it in local storage
     localStorage.setItem('favourites', JSON.stringify(this.favourites));
+  }
+
+  setFavourite(photoId: string, isFavourite: boolean) {
+    debugger;
+    localStorage.setItem(photoId, JSON.stringify(isFavourite));
+  }
+
+  getFavourite(photoId: string): boolean {
+    return this.favourites.some(fav => fav.id == photoId);
   }
 }

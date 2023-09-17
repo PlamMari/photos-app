@@ -3,7 +3,6 @@
     <ng-container *ngIf="loading">
         <p>Loading ...</p>
     </ng-container>
-    <!-- <p>ID: {{photo && photo['id']}}</p> -->
 
 <div>   
     <ng-container *ngIf="photo">        
@@ -13,6 +12,13 @@
             <img [src]="photo['url']" alt="{{photo['title']}}"/>
             Url: {{ photo['url'] }}</div>
         <p>Just a pretty json: {{photo | prettyPhoto}}</p>
+        <p>Is Favourite: {{ photo['isFavourite'] }}</p>
+        <!-- <ng-container *ngIf="!isFavourite">
+            <button (click)="handleAddToFavs()">Add Favorite</button>
+            <button mat-icon-button (click)="handleAddToFavs()">
+                <mat-icon>Favourite</mat-icon>
+            </button>
+        </ng-container>   -->
     </ng-container>
 </div>
 

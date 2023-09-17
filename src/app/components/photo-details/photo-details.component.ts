@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Photo, PhotoData } from 'src/app/interfaces/photo';
 import { PhotoService } from 'src/app/services/photo.service';
+import { AddToFavouritesService } from 'src/app/services/add-to-favourites.service';
 
 @Component({
   selector: 'app-photo-details',
@@ -9,16 +10,25 @@ import { PhotoService } from 'src/app/services/photo.service';
   styleUrls: ['./photo-details.component.css']
 })
 export class PhotoDetailsComponent {
-  constructor(private route: ActivatedRoute, private photoService: PhotoService, private router: Router) {
+  constructor(private route: ActivatedRoute, private photoService: PhotoService, private router: Router, private addToFavsService: AddToFavouritesService) {
     console.log('photo', this.photo);
     this.photo = this.router.getCurrentNavigation()?.extras.state
   }
 
-photoId: string = '';
+  photoId: string = '';
 
-photo!: PhotoData | undefined;
+  photo!: PhotoData | undefined;
+  
+  loading: boolean = true;
 
-loading: boolean = true;
+// photo = {
+//   isFavourite: false,
+//   albumId: 'someAlbumId',
+//   id: 'someId',
+//   title: 'someTitle',
+//   url: 'someUrl',
+//   thumbnailUrl: 'someThumbnailUrl' // or true, depending on the favourite status
+// };
 
 ngOnInit() {
   this.photoId = this.route.snapshot.params['photoId']  
@@ -27,6 +37,7 @@ ngOnInit() {
     .subscribe({
       next: (response: Photo) => { 
         this.photo = response
+        this.photo['isFavourite']=this.addToFavsService.getFavourite(this.photoId);
         console.log(this.photo);
       },
       error: (error: Error) => { 

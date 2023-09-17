@@ -13,6 +13,8 @@ import { PhotoService } from './services/photo.service';
 import { PhotoDetailsComponent } from './components/photo-details/photo-details.component';
 import { AddToFavouritesService } from './services/add-to-favourites.service';
 import { FavouritesComponent } from './components/favourites/favourites.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [PhotoService, AddToFavouritesService],
   bootstrap: [AppComponent]

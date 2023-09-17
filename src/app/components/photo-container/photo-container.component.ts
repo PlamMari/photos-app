@@ -11,12 +11,7 @@ import { AddToFavouritesService } from 'src/app/services/add-to-favourites.servi
 })
 export class PhotoContainerComponent implements OnInit {
 
-  constructor (private photoService: PhotoService, private route: ActivatedRoute) {
-        // // get the items from a service or a mock data
-        // this.items = this.getItems();
-        // // get the favourites from a service or a mock data
-        // this.favs = this.getFavourites();    
-   }
+  constructor (private photoService: PhotoService, private route: ActivatedRoute) { }
 
   photoData!: Photo[];
 

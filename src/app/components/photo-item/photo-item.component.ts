@@ -16,27 +16,21 @@ export class PhotoItemComponent implements OnInit {
 
 //photoData!: Photo;
 @Input() photoData!: Photo
-// @Output() newPhoto = new EventEmitter <Photo>()
+// @Output() addToFav = new EventEmitter <any>()
 @Output() removeFromFav = new EventEmitter<any>();
 
- private isFavourite: boolean = false;
-
-  // check if an item is in the favourites list or not using some mock data
-  public isFavourite$(item: any): boolean {
-    return item.isFavourite;
-  }
-
+public isFavourite!: boolean;
 
 ngOnInit() {  
-  /*this.http.get('https://jsonplaceholder.typicode.com/photos')
-      .subscribe(data => {
-        this.photos = data.map(a => {
-          return {
-            title: a.title,
-            url: a.url
-          };
-        });
-      });*/
+  // this.http.get('https://jsonplaceholder.typicode.com/photos')
+  //     .subscribe(data => {
+  //       this.photos = data.map(a => {
+  //         return {
+  //           title: a.title,
+  //           url: a.url
+  //         };
+  //       });
+  //     });
   }
 
   showPhotoDetails() {    
@@ -45,16 +39,15 @@ ngOnInit() {
   }
 
   handleAddToFavs() {
-    alert('new alert')
     this.addToFavs.addToFavorites(this.photoData)
     this.isFavourite = true;
 }
 
-toggleFavorite(photo: Photo) { this.isFavourite = !this.isFavourite; }
+// toggleFavorite(photo: Photo) { this.isFavourite = !this.isFavourite; }
 
-  // emit the custom event with the item data to the parent component
-  public removeFromFavourites(photo: Photo) {
-  this.removeFromFav.emit(photo);
-  }
+//   // emit the custom event with the item data to the parent component
+//   public removeFromFavourites(photo: Photo) {
+//   this.removeFromFav.emit(photo);
+//   }
 
 }

@@ -11,10 +11,10 @@
         <!-- <app-user-item [photoData]="photo" (newPhoto)="handleAddNewPhoto($event)" /> -->
     </ng-container>
     <ng-container>
-        <app-favourites></app-favourites>
+        <!-- <app-favourites></app-favourites> -->
         <!-- <app-favourites [favs]="favs"></app-favourites> -->
     </ng-container>
-    <ng-container *ngFor="let page of visiblePagesArr">
+    <ng-container *ngFor="let page of visiblePagesArr">        
         <a href="photos?p={{page}}">{{page}}</a>
     </ng-container>
 </div>

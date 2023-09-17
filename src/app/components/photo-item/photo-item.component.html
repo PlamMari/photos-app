@@ -3,7 +3,15 @@
     
     <img [src]="photoData.thumbnailUrl"/>
     <button (click)="showPhotoDetails()">Details</button>
-    <button (click)="handleAddToFavs()">Add Favorite</button>
-    <input type="checkbox" id="fav-{{photoData.id}}" (change)="toggleFavorite(photoData)" 
-    [checked]="photoData['isFavorite']"><label for="fav-{{photoData.id}}">Add to favs</label>
+    <ng-container *ngIf="!isFavourite">
+        <button (click)="handleAddToFavs()" [disabled]="isFavourite">Add Favorite</button>
+        <button mat-mini-fab (click)="handleAddToFavs()" [disabled]="isFavourite">
+            <mat-icon>favorite</mat-icon>
+        </button>
+    </ng-container>
+    <ng-container *ngIf="isFavourite">
+        <p>is Favourite</p>        
+    </ng-container>    
+    <!-- <input type="checkbox" id="fav-{{photoData.id}}" (change)="toggleFavorite(photoData)" 
+    [checked]="photoData['isFavorite']"><label for="fav-{{photoData.id}}">Add to favs</label> -->
 </div>
