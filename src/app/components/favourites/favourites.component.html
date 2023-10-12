@@ -6,6 +6,8 @@
             <br>
             <a [href]="fav.url" target="_blank">{{fav.title}}</a>
             <br>
+        </div>
+        <div class="button-container">
             <button mat-button color="warn" (click)="removeFromFavourites(fav)" [disabled]="!isFavourite(fav)">
                 <mat-icon>favorite</mat-icon>
                 Remove

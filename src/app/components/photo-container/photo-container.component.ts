@@ -17,9 +17,10 @@ export class PhotoContainerComponent implements OnInit {
 
   @Input() public favs: Photo[] = [];
 
-  itemsPerPage: number= 5;
+  itemsPerPage: number= 10;
   activePage: number= 0;
   visiblePagesArr!: number[];
+  numTotalItems!: number;
 
   ngOnInit(): void {
 
@@ -36,13 +37,13 @@ export class PhotoContainerComponent implements OnInit {
       .subscribe({
         next: (response: Photo[]) => {
 
-          var numTotalItems= response.length;
-          var totalPages= Math.ceil(numTotalItems/this.itemsPerPage);//TODO: calc properly
+          this.numTotalItems= response.length;
+          var totalPages= Math.ceil(this.numTotalItems/this.itemsPerPage);//TODO: calc properly
           var itemStartIndex=(this.activePage-1)*this.itemsPerPage;
           var itemEndIndex=itemStartIndex+this.itemsPerPage;
           var lowerPagesBound= this.activePage< 5? 0: this.activePage-5;
-          lowerPagesBound= this.activePage> totalPages-5 ? totalPages-11: lowerPagesBound;
-          this.visiblePagesArr= Array(11).fill(0).map((x, i) => lowerPagesBound+ i+1);
+          lowerPagesBound= this.activePage > totalPages-5 ? totalPages-10: lowerPagesBound;
+          this.visiblePagesArr= Array(10).fill(0).map((x, i) => lowerPagesBound+ i+1);
 
           this.photoData = response.slice(itemStartIndex, itemEndIndex);
           console.log('FROM NEXT', this.photoData);

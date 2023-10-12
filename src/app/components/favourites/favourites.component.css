@@ -1,13 +1,15 @@
 .grid-container {
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     gap: 10px;
 }
 
 .grid-item {
     border: 1px solid #ccc;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 p {
@@ -24,3 +26,9 @@ p {
     width: 100%;
     display: block;
 }
+
+.button-container {
+    margin-top: auto;
+}
+
+

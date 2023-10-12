@@ -1,6 +1,6 @@
-<div>
-    <h1>Photo container</h1>
-    <ng-container *ngFor="let photo of photoData">
+<p>Photo gallery</p>
+<div class="grid-container">    
+    <ng-container class="content" *ngFor="let photo of photoData">
         <!-- <p>{{ photo.title }}</p>
         <img [src]="photo.url" alt="{{ photo.title }}" />
         <div>{{ photo.title }}</div>
@@ -10,11 +10,11 @@
         <app-photo-item [photoData]="photo" (removeFromFav)="onRemoveFromFav($event)"></app-photo-item>
         <!-- <app-user-item [photoData]="photo" (newPhoto)="handleAddNewPhoto($event)" /> -->
     </ng-container>
-    <ng-container>
-        <!-- <app-favourites></app-favourites> -->
-        <!-- <app-favourites [favs]="favs"></app-favourites> -->
-    </ng-container>
-    <ng-container *ngFor="let page of visiblePagesArr">        
+</div>
+<div class="page-container">    
+    <ng-container *ngFor="let page of visiblePagesArr; let i = index">
+        <div *ngIf="i == 0 && page != 1"><a href="photos?p={{page-1}}">Previous</a></div>
         <a href="photos?p={{page}}">{{page}}</a>
+        <div *ngIf="i == visiblePagesArr.length - 1 && page < numTotalItems/itemsPerPage"><a href="photos?p={{page+1}}">Next</a></div>
     </ng-container>
 </div>

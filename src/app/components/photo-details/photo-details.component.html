@@ -10,7 +10,9 @@
         <p>ID: {{ photo['id'] }}</p>
         <div>
             <img [src]="photo['url']" alt="{{photo['title']}}"/>
+            <br>
             Url: {{ photo['url'] }}</div>
+    
         <p>Just a pretty json: {{photo | prettyPhoto}}</p>
         <p>Is Favourite: {{ photo['isFavourite'] }}</p>
         <!-- <ng-container *ngIf="!isFavourite">

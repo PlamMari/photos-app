@@ -6,9 +6,14 @@
     list-style-type: none;
     margin: 5px;
     border-bottom: 2px solid transparent;
+    text-transform: uppercase;
 }
 
 .navigation-ul li:hover {    
     border-bottom: 2px solid green;
     cursor: pointer;
+}
+
+.navigation-ul li a {
+    text-decoration: none;
 }

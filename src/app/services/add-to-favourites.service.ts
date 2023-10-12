@@ -27,7 +27,6 @@ export class AddToFavouritesService {
     const index = this.favourites.findIndex(item => item.id === photo.id);
     
     if (index== -1) {
-    alert('Added to favs')
     this.favourites.push(photo)
     this.saveFavourites()
   }
@@ -63,7 +62,6 @@ export class AddToFavouritesService {
   }
 
   setFavourite(photoId: string, isFavourite: boolean) {
-    debugger;
     localStorage.setItem(photoId, JSON.stringify(isFavourite));
   }
 

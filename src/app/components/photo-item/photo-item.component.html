@@ -1,17 +1,22 @@
 <div [ngClass]="'photo-item-box'">
-    <h2>Photo /item/ #{{photoData.id}}</h2>   
+    <p>Photo /item/ #{{photoData.id}}</p>
     
-    <img [src]="photoData.thumbnailUrl"/>
-    <button (click)="showPhotoDetails()">
-        <mat-icon color="primary">info</mat-icon>
-    </button>
-    <ng-container *ngIf="!isFavourite">
-        <!-- <button (click)="handleAddToFavs()" [disabled]="isFavourite">Add Favorite</button> -->
-        <button mat-mini-fab (click)="handleAddToFavs()" [disabled]="isFavourite">
-            <mat-icon>favorite</mat-icon>
+    <img [src]="photoData.thumbnailUrl" alt="Photo thumbnail"/>
+    
+    <div class="button-container">
+        <button mat-button (click)="showPhotoDetails()">
+            <mat-icon color="primary">info</mat-icon>
         </button>
-    </ng-container>
-    <ng-container *ngIf="isFavourite">
-        <a href="favourites"><mat-icon>favorite</mat-icon></a>             
-    </ng-container>
+        <ng-container *ngIf="!isFavourite">
+            <button mat-button color="primary" (click)="handleAddToFavs()" [disabled]="isFavourite">
+                Add<mat-icon>favorite_border</mat-icon>
+            </button>
+        </ng-container>
+        <ng-container *ngIf="isFavourite">
+            <a mat-button href="favourites" color="accent">
+                <mat-icon>favorite</mat-icon>
+            </a>             
+        </ng-container>
+    </div>
+    
 </div>

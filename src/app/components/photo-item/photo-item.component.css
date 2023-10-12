@@ -1,5 +1,19 @@
 .photo-item-box {
-    margin: 10px;
-    padding: 20px;
-    border: 2px solid fuchsia;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.photo-item-box img {
+    width: 100%;
+    display: block;
+}
+
+.button-container {
+    display: flex;
+    margin-top: auto;
+}
+
+.button-container :first-child > mat-icon {
+    padding: 0;
 }
