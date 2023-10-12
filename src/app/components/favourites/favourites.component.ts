@@ -47,8 +47,7 @@ ngOnInit(): void {
   
 }
 
-removeFromFavourites(photo: Photo) { 
-  alert('removed')
+removeFromFavourites(photo: Photo) {
  this.addToFavs.removeFromFavourites(photo)
 }
 

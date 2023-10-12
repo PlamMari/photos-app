@@ -15,6 +15,7 @@ import { AddToFavouritesService } from './services/add-to-favourites.service';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     AppRoutingModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [PhotoService, AddToFavouritesService],
   bootstrap: [AppComponent]
